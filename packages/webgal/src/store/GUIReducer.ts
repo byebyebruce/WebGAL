@@ -16,8 +16,8 @@ const initState: IGuiState = {
   showTitle: true,
   showMenuPanel: false,
   showTextBox: true,
-  showControls: true,
-  controlsVisibility: true,
+  showControls: false, // 修改为 false，原来是 true
+  controlsVisibility: false, // 修改为 false，原来是 true
   currentMenuTag: MenuPanelTag.Option,
   titleBg: '',
   titleBgm: '',
@@ -26,7 +26,7 @@ const initState: IGuiState = {
   showGlobalDialog: false,
   showPanicOverlay: false,
   isEnterGame: false,
-  isShowLogo: true,
+  isShowLogo: false, // 修改为 false，原来是 true
   enableAppreciationMode: false, // Paf87
 };
 

@@ -12,6 +12,10 @@ const Logo: FC = () => {
   const GUIState = useSelector((state: RootState) => state.GUI);
   const logoImage = GUIState.logoImage;
   const isEnterGame = GUIState.isEnterGame;
+  
+  // 直接返回空组件，不显示任何内容
+  return null;
+  
   const currentLogoIndex = useValue(-1);
   const currentTimeOutId = useValue<any>(-1);
   const animationDuration = 5000;

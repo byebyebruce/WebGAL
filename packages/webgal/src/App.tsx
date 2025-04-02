@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 import { initializeScript } from './Core/initializeScript';
 import Menu from '@/UI/Menu/Menu';
 import { Stage } from '@/Stage/Stage';
-import { BottomControlPanel } from '@/UI/BottomControlPanel/BottomControlPanel';
+// import { BottomControlPanel } from '@/UI/BottomControlPanel/BottomControlPanel';
 import { Backlog } from '@/UI/Backlog/Backlog';
 import { Extra } from '@/UI/Extra/Extra';
-import { BottomControlPanelFilm } from '@/UI/BottomControlPanel/BottomControlPanelFilm';
+// import { BottomControlPanelFilm } from '@/UI/BottomControlPanel/BottomControlPanelFilm';
 import GlobalDialog from '@/UI/GlobalDialog/GlobalDialog';
 import DevPanel from '@/UI/DevPanel/DevPanel';
 import Translation from '@/UI/Translation/Translation';
@@ -26,8 +26,8 @@ function App() {
     <div className="App">
       <Translation />
       <Stage />
-      <BottomControlPanel />
-      <BottomControlPanelFilm />
+      {/* <BottomControlPanel /> */}
+      {/* <BottomControlPanelFilm /> */}
       <Backlog />
       <Title />
       <Logo />

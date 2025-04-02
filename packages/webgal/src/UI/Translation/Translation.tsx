@@ -1,7 +1,7 @@
+import languages, { language } from '@/config/language';
 import useLanguage from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import s from './translation.module.scss';
-import languages, { language } from '@/config/language';
 
 export default function Translation() {
   const setLanguage = useLanguage();
@@ -11,7 +11,9 @@ export default function Translation() {
   useEffect(() => {
     const lang = window?.localStorage.getItem('lang');
     if (!lang) {
-      setIsShowSelectLanguage(true);
+      // 直接设置为中文，不显示语言选择对话框
+      setLanguage(language.zhCn, false);
+      // setIsShowSelectLanguage(true); // 注释掉这行，不再显示语言选择对话框
     } else {
       setLanguage(Number(window?.localStorage.getItem('lang')), false);
     }
