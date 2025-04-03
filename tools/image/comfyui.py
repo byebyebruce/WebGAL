@@ -14,7 +14,8 @@ class ComfyUIClient:
     def upload_image_file(self, image_path):
         url = f"http://{self.server_address}/upload/image"
         with open(image_path, 'rb') as file:
-            return self.upload_image(file)
+            image_bytes = file.read()
+            return self.upload_image(image_bytes)
             #files = {'image': (os.path.basename(image_path), file, 'image/png')}
             #data = {'overwrite': 'true'}
             #response = requests.post(url, files=files, data=data)
@@ -147,3 +148,15 @@ class ComfyUIClient:
             # image.show()
         else:
             print("未获取到处理后的图片")
+
+if __name__ == "__main__":
+    import sys
+    input_path = sys.argv[1]
+    if len(sys.argv) > 2:
+        output_path = sys.argv[2]
+    else:
+        output_path = "output.png"
+    client = ComfyUIClient()
+    image_data = client.process_image_file(input_path)
+    with open(output_path, 'wb') as f:
+        f.write(image_data)

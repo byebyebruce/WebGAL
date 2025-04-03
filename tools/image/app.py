@@ -61,7 +61,6 @@ def api_edit_image():
             return {"error": "Empty filename"}, 400
          # 将 FileStorage 对象转换为字节对象
         file_bytes = file.read()
-        file.seek(0) 
             
         # Get form data parameters
         prompt = request.form.get('prompt')
@@ -103,6 +102,8 @@ def api_remove_bg():
     file = request.files['file']
     if file.filename == '':
         return {"error": "Empty filename"}, 400
+    # 将 FileStorage 对象转换为字节对象
+    file_bytes = file.read()
     
     # 保存临时文件
     #temp_path = f"/tmp/{uuid.uuid4()}.png"
