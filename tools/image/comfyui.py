@@ -11,14 +11,23 @@ class ComfyUIClient:
         self.server_address = server_address
         self.client_id = str(uuid.uuid4())
 
-    def upload_image(self, image_path):
+    def upload_image_file(self, image_path):
         url = f"http://{self.server_address}/upload/image"
         with open(image_path, 'rb') as file:
-            files = {'image': (os.path.basename(image_path), file, 'image/png')}
-            data = {'overwrite': 'true'}
-            response = requests.post(url, files=files, data=data)
-            return response.json()
+            return self.upload_image(file)
+            #files = {'image': (os.path.basename(image_path), file, 'image/png')}
+            #data = {'overwrite': 'true'}
+            #response = requests.post(url, files=files, data=data)
+            #return response.json()
 
+    def upload_image(self, image_data):
+        url = f"http://{self.server_address}/upload/image"
+        # Create a file-like object from image_data
+        files = {'image': ('image.png', image_data, 'image/png')}
+        data = {'overwrite': 'true'}
+        response = requests.post(url, files=files, data=data)
+        return response.json()
+            
     def queue_prompt(self, prompt):
         p = {"prompt": prompt, "client_id": self.client_id}
         data = json.dumps(p).encode('utf-8')
@@ -53,9 +62,14 @@ class ComfyUIClient:
         
         return output_images
 
-    def process_image(self, input_path):
+    def process_image_file(self, input_path):
+        with open(input_path, 'rb') as f:
+            image_data = f.read()
+        return self.process_image(image_data)
+
+    def process_image(self, image_data):
         # 1. 上传图片到ComfyUI服务器
-        upload_result = self.upload_image(input_path)
+        upload_result = self.upload_image(image_data)
         filename = upload_result['name']  # 获取上传后的文件名
 
         # 2. 构建工作流Prompt

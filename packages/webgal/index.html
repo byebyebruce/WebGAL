@@ -66,7 +66,7 @@
             transition: text-shadow 1s;
             font-size: 175%;
 ">
-          PRESS THE SCREEN TO START
+          Loading...
         </div>
       </div>
       <div style="position: absolute;
@@ -212,6 +212,12 @@
         console.log("Registration failed with " + error);
       });
     }
+    
+    // 页面加载完成后自动进入游戏
+    window.addEventListener('load', function() {
+      enter();
+      //setTimeout(enter, 500); // 延迟500毫秒后自动进入，给页面足够时间加载
+    });
   </script>
   <script type="module" src="/src/main.tsx"></script>
   <!--<script type="module" src="/src/Core/util/resize.ts"></script>-->
