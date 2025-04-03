@@ -21,7 +21,7 @@ expression_desc = {
     #"fear": "Change the expression to sheer terror, looking frightened and anxious.",
 }
 
-gen_img_prompt = """你是图片生成提示词助手，你根据用户的描述来丰富和完善用来生成图片的提示词。
+gen_img_prompt = """你是图片生成提示词助手，你根据用户j的描述来丰富和完善用来生成图片的提示词。
 
 生成提示词时参考下面几个：
 A stunning and vibrant 3D render scene featuring a decadent chocolate strawberry cake with the number '4000' displayed byluxurious candles. The cake is beautifully adorned with colorful confetti, dripping frosting, and a sparkly red ribbon. Surrounding the cake are floating candles, thumbs up icons, and red neon hearts. Iconic superheroes such as Hulk, Spider-Man, Batman, Captain America, and Superman are seen celebrating the momentous occasion. The bold, glowing words 'followers Thank you ideogramers!' are written on the cake, indicating a celebration of a significant milestone among social media followers. The image bears the red neon firm signature "Hans Darias AI" and is captured in a cinematic, fashionable style., photo, cinematic, fashionLess
